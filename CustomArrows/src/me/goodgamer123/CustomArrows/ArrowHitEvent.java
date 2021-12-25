@@ -31,6 +31,7 @@ public class ArrowHitEvent implements Listener {
 		if (e.getDamager() instanceof Arrow) {
 			if (((Arrow) (e.getDamager())).getShooter() instanceof Player) {
 				if (lastShotArrow.get(((Arrow) (e.getDamager())).getShooter()) == 200) {
+					
 					if (((Damageable) e.getEntity()).getHealth() - e.getDamage() <= 0) {
 						Firework fw = (Firework) e.getEntity().getWorld().spawnEntity(e.getEntity().getLocation(), EntityType.FIREWORK);
 				        FireworkMeta fwm = fw.getFireworkMeta();
@@ -45,7 +46,9 @@ public class ArrowHitEvent implements Listener {
 				        else if (randomNum == 1) e.getEntity().getWorld().dropItemNaturally(e.getEntity().getLocation(), new ItemStack(Material.GOLD_INGOT));
 				        else if (randomNum == 2) e.getEntity().getWorld().dropItemNaturally(e.getEntity().getLocation(), new ItemStack(Material.ENDER_PEARL));
 					}
+					
 				} else if (lastShotArrow.get(((Arrow) (e.getDamager())).getShooter()) == 500) {
+					
 					if (e.getEntity() instanceof Player || e.getEntity() instanceof Wither || e.getEntity() instanceof EnderDragon || e.getEntity() instanceof ElderGuardian) return;
 					e.getEntity().remove();
 					for (int i = 0; i < 6; i++) {
@@ -60,12 +63,15 @@ public class ArrowHitEvent implements Listener {
 					e.getEntity().getWorld().spawnParticle(Particle.WATER_BUBBLE, e.getEntity().getLocation(), 1000, 0.5F, 0F, 0.5F);
 					e.getEntity().getWorld().spawnParticle(Particle.WATER_WAKE, e.getEntity().getLocation(), 500, 0.5F, 0F, 0.5F);
 					e.getEntity().getWorld().spawnParticle(Particle.WATER_DROP, e.getEntity().getLocation(), 500, 0F, 0.2F, 0.5F);
+				
 				} else if (lastShotArrow.get(((Arrow) (e.getDamager())).getShooter()) == 600) {
+					
 					((Damageable) e.getEntity()).damage(2 * e.getDamage());
 					e.getEntity().getWorld().spawnParticle(Particle.SPELL_WITCH, e.getEntity().getLocation(), 32, 1.2F, 0F, 1.2F);
 					e.getEntity().getWorld().spawnParticle(Particle.FIREWORKS_SPARK, e.getEntity().getLocation(), 16, 0.2F, 0F, 0.2F);
 					e.getEntity().getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, e.getEntity().getLocation(), 32, 0.3F, 0.2F, 0.3F);
 					e.getEntity().getWorld().spawnParticle(Particle.CRIT_MAGIC, e.getEntity().getLocation(), 16, 0.3F, 0.2F, 0.3F);
+				
 				}
 			}
 		} else if (e.getDamager() instanceof Firework) {
