@@ -1,0 +1,6 @@
+main: me.goodgamer123.CustomArrows.MainClass
+name: CustomArrows
+version: 1.0.0
+api-version: 1.17
+author: goodgamer123
+description: Adds custom arrows to Minecraft!
